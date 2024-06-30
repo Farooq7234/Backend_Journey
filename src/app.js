@@ -1,27 +1,23 @@
 import express from "express";
-import cors from "cors"
+import cors from "cors";
 import cookieParser from "cookie-parser";
 
 const app = express();
 
-app.use(cors(
-    {
-        origin: process.env.CORS_ORIGIN,
-        Credential: true,
-    }
-))
+// 🚀 Setting up middleware
+app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true
+}));
 
-app.use(express.json({limit:"16kb"}))
-app.use(express.urlencoded({extended:true, limit:"16kb"}))
-app.use(express.static("public"))
-app.use(cookieParser())
+// 📦 Configuring data handling like json, url 
+app.use(express.json({ limit: "16kb" })); // Limiting JSON payload size to 16kb
+app.use(express.urlencoded({ extended: true, limit: "16kb" })); // Limiting URL-encoded payload size to 16kb
 
-// routes import
+// 🗂️ Serving static files from the 'public' folder
+app.use(express.static("public"));
 
-import userRouter from "./routes/user.routes.js";
+// 🍪 Enabling cookie parsing
+app.use(cookieParser());
 
-// routes declaration
-
-app.use("/api/v1/users",userRouter)
-
-export { app }
+export { app };
