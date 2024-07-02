@@ -20,4 +20,16 @@ app.use(express.static("public"));
 // 🍪 Enabling cookie parsing
 app.use(cookieParser());
 
+// Routes import 
+
+import userRouter  from './routes/user.routes.js'
+
+
+// Route declaration
+
+app.use("/api/v1/users", userRouter)
+
+
+// https://localhost:8000/api/v1/users/register
+
 export { app };
