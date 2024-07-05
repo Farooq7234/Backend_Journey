@@ -7,7 +7,9 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 
 const registerUser = asyncHandler(async (req, res,) => {
     const { fullName, email, username, password } = req.body
-    console.log("Email", email)
+    // console.log("Email", email)
+    // console.log("password", password)
+    // console.log("username", username)
 
     if (
         [fullName, email, username, password].some((field) => field?.trim() === "")
@@ -17,7 +19,7 @@ const registerUser = asyncHandler(async (req, res,) => {
 
     // TODO: add  other checks like email validation and password as well
 
-    const existedUser = User.findOne({
+    const existedUser = await User.findOne({
         $or: [{ username }, { email }]
     })
 
