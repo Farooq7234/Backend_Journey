@@ -1,1 +1,1 @@
-## Readme is not yet ready 
+## Learning Backend from Chai aur Code and building YouTube+ twitter 
