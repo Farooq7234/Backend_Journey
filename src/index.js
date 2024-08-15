@@ -10,7 +10,7 @@ dotenv.config({
 })
 
 
-// As the connectDB is a aysnc function so then and catch can be user(basically promise)
+// As the connectDB is a aysnc function so then and catch can be used (basically promise)
 
 connectDB()
     .then(() => {
